@@ -2,8 +2,11 @@
 
 :root {
     --white: #ffffff;
-    --light: #f1f1f1;
-    --dark: rgb(18, 18, 18);
+    --lighter: #f1f1f1;
+    --light-grey: #aaaaaa;
+    --grey: rgb(53, 53, 53);
+    --dark: rgb(27, 27, 27);
+    --darker: rgb(18, 18, 18);
     --black: #000000;
 }
 
@@ -11,13 +14,14 @@
     width: 60vw;
     margin: auto;
 }
+
 .container-80 {
     width: 80vw;
     margin: auto;
 }
 
 .landing-page {
-    background: linear-gradient(var(--dark), rgba(0, 0, 0, 0.6) 80%, rgb(0, 0, 0, 0.2)), url(./img/landing-page.jpg) center/cover no-repeat;
+    background: linear-gradient(var(--black), rgba(0, 0, 0, 0.6) 80%, rgb(0, 0, 0, 0.2)), url(./img/landing-page.jpg) center/cover no-repeat;
     height: 100vh;
     color: white;
     padding-top: 30px;
@@ -26,17 +30,33 @@
 .height-100 {
     height: 100vh;
 }
+
 .height-80 {
     height: 80vh;
 }
 
+.title {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .bg-black {
-    background: var(--dark);
+    background: var(--darker);
+    border-bottom: .15em solid var(--grey);
     color: white;
 }
+
 .bg-white {
-    background: var(--light);
-    color: var(--dark);
+    background: var(--lighter);
+    color: var(--darker);
+}
+
+.bg-dark {
+    background: var(--dark);
+    border-bottom: .15em solid var(--grey);
+    color: var(--white);
 }
 
 .two-col-img-right {
@@ -44,18 +64,30 @@
     grid-template-columns: 5fr 4fr;
     align-items: center;
 }
+
 .two-col-img-left {
     display: grid;
     grid-template-columns: 4fr 5fr;
     align-items: center;
 }
+
 .two-col-img-left h2 {
     text-align: right;
+}
+
+.one-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 5rem 0;
 }
 
 .grid-align-right {
     justify-self: end;
 }
+
 .grid-align-left {
     justify-self: start;
 }
@@ -65,45 +97,116 @@
 /* Header Navigation Styles */
 header {
     margin: auto;
-    padding: 30px 0;
+    padding: 15px 0;
     position: sticky;
     top: 0;
-    background-color: var(--dark);
-    border-bottom: 2px solid rgb(53, 53, 53);
+    background-color: var(--darker);
+    border-bottom: .15em solid var(--grey);
     box-shadow: 0 5px 20px -2px rgba(0, 0, 0, 0.494);
     z-index: 99;
 }
 
 nav {
+    color: rgb(238, 238, 238);
     width: 60vw;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 nav > ul {
     display: flex;
     justify-content: space-between;
+    gap: 2.5rem;
 }
 
-.nav-links {
+.nav-links,
+.nav-chapters-heading a {
+    color: var(--lighter);
     display: block;
-    padding: 10px 20px;
-    color: rgb(238, 238, 238);
+    padding: 10px;
     font-weight: 700;
-    border-radius: 6px;
+    border-radius: .5rem;
     transition: all 150ms;
 }
 
+.nav-chapters-heading {
+    position: relative;
+}
+
+.nav-chapters {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background-color: var(--darker);
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    border: .15rem solid var(--grey);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.407);
+    display: none;
+}
+
+.nav-chapters .nav-links {
+    opacity: 0.8;
+    border-radius: 0px;
+}
+
+.nav-chapters .nav-links:hover {
+    background: none;
+    opacity: 1;
+}
+
+.nav-chapters-heading:hover > .nav-chapters {
+    display: block;
+}
+
+.nav-chapters .nav-links {
+    padding: 20px 30px;
+}
+
+
 .nav-links:hover {
-    color: rgb(255, 255, 255);
-    background-color: rgba(252, 252, 252, 0.203);
+    color: var(--white);
+    background-color: var(--dark);
+}
+
+.btn-white {
+    display: block;
+    padding: 10px;
+    font-weight: 700;
+    border-radius: .5rem;
+    transition: all 150ms;
+    background-color: var(--lighter);
+    color: var(--grey);
+}
+.btn-white:hover {
+    background-color: var(--white);
+    color: var(--darker);
 }
 
 h1 {
-    margin-bottom: 40px;
+    font-size: 3rem;
+}
+
+.landing-page h1 {
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 h2 {
+    font-size: 1.75rem;
     line-height: 1.6;
+    padding-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+img {
+    width: 100%;
 }
 
 #scroll-down {
@@ -126,6 +229,22 @@ h2 {
 .pad-right {
     padding-right: 100px;
 }
+
 .pad-left {
     padding-left: 100px;
+}
+
+.img-80 {
+    width: 80%;
+}
+
+footer {
+    height: 250px;
+}
+
+.caption {
+    color: var(--light-grey);
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem 3rem;
 }
